@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Pstatus::VERSION
   spec.authors       = ["Vinh Nguyen Le"]
   spec.email         = ["vinh.nguyenlexuan@asnet.com.vn"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Display http status message.}
+  spec.description   = %q{A gem support display http status message.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
