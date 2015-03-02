@@ -1,23 +1,23 @@
 require "spec_helper"
 
 describe Pstatus do
-  let(:SUCCESS){[200, 201, 202, 203, 204, 205, 206, 207, 208, 226]}
-  let(:SUCCESS_MESSAGE) { ["OK", "Created", "Accepted", "Non-Authoritative Information",
+  let(:success){[200, 201, 202, 203, 204, 205, 206, 207, 208, 226]}
+  let(:success_message) { ["OK", "Created", "Accepted", "Non-Authoritative Information",
                     "No Content", "Reset Content", "Partial Content",
                     "Multi-Status (WebDAV)", "Already Reported (WebDAV)", "IM Used"] }
 
-  let(:INFORMATION) { [100, 101, 102] }
-  let(:INFORMATIN_MESSAGE) { ["Continue", "Switching Protocols", "Processing (WebDAV)"] }
+  let(:information) { [100, 101, 102] }
+  let(:information_message) { ["Continue", "Switching Protocols", "Processing (WebDAV)"] }
 
-  let(:REDIRECTION) { [301, 302, 303, 304, 305, 307, 308] }
-  let(:REDIRECTION_MESSAGE) { ["Multiple Choices", "Moved Permanently", "Found",
+  let(:redirection) { [301, 302, 303, 304, 305, 307, 308] }
+  let(:redirection_message) { ["Multiple Choices", "Moved Permanently", "Found",
                         "See Other", "Not Modified", "Use Proxy",
                         "Temporary Redirect", "Permanent Redirect (experiemental)"] }
 
-  let(:CLIENT) { [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410,
+  let(:client) { [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410,
           411, 412, 413, 414, 416, 416, 417, 418, 420, 422, 423,
           424, 425, 426, 428, 429, 431, 444, 449, 450, 499] }
-  let(:CLIENT_MESSAGE) { ["Bad Request", "Unauthorized", "Payment Required", "Forbidden",
+  let(:client_message) { ["Bad Request", "Unauthorized", "Payment Required", "Forbidden",
                     "Not Found", "Method Not Allowed", "Not Acceptable", "Proxy Authentication Required",
                     "Request Timeout", "Conflict", "Gone", "Length Required", "Precondition Failed",
                     "Request Entity Too Large", "Request-URI Too Long", "Unsupported Media Type",
@@ -27,9 +27,9 @@ describe Pstatus do
                     "Too Many Requests", " Request Header Fields Too Large", "No Response (Nginx)", "Retry With (Microsoft)",
                     "Blocked by Windows Parental Controls (Microsoft)", "Client Closed Request (Nginx)"] }
 
-  let(:SERVER) { [500, 501, 502, 503, 504, 505, 506, 507, 508, 509,
+  let(:server) { [500, 501, 502, 503, 504, 505, 506, 507, 508, 509,
           510, 511, 598, 599] }
-  let(:SERVER_MESSAGE) { ["Internal Server Error", "Not Implemented", "Bad Gateway", "Service Unavailable",
+  let(:server_message) { ["Internal Server Error", "Not Implemented", "Bad Gateway", "Service Unavailable",
                     "Gateway Timeout", "HTTP Version Not Supported", "Variant Also Negotiates (Experimental)",
                     "Insufficient Storage (WebDAV)", "Loop Detected (WebDAV)", "Bandwidth Limit Exceeded (Apache)",
                     "Not Extended", "Authentication Required", "Network read timeout error", "Network connect timeout error"] }
@@ -43,21 +43,20 @@ describe Pstatus do
   end
 
   it "should display the status message" do
-    SUCCESS.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(SUCCESS_MESSAGE[i])
+    success.each_with_index do |s, i|
+      expect(Pstatus.getStatusMsg(s)).to eq(success_message([i]))
     end
-    INFORMATION.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(INFORMATION_MESSAGE[i])
+    information.each_with_index do |s, i|
+      expect{Pstatus.getStatusMsg(s)}.to eq(information_message[i])
     end
-    REDIRECTION.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(REDIRECTION_MESSAGE[i])
+    redirection.each_with_index do |s, i|
+      expect{Pstatus.getStatusMsg(s)}.to eq(redirection_message[i])
     end
-    CLIENT.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(CLIENT_MESSAGE[i])
+    client.each_with_index do |s, i|
+      expect{Pstatus.getStatusMsg(s)}.to eq(client_message[i])
     end
-    SERVER.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(SERVER_MESSAGE[i])
+    server.each_with_index do |s, i|
+      expect{Pstatus.getStatusMsg(s)}.to eq(server_message[i])
     end
   end
-
 end
