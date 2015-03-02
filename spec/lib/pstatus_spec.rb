@@ -35,28 +35,28 @@ describe Pstatus do
                     "Not Extended", "Authentication Required", "Network read timeout error", "Network connect timeout error"] }
 
   it "should raise an error if the status_code is missing" do
-    expect{Pstatus.getStatusMsg(nil)}.to raise_error("Missing parameter status_code.")
+    expect{Pstatus.get_status_msg(nil)}.to raise_error("Missing parameter status_code.")
   end
 
   it "should raise an error if the status_code does not exist" do
-    expect{Pstatus.getStatusMsg(4042)}.to raise_error("This status code does not exist. Please check again!")
+    expect{Pstatus.get_status_msg(4042)}.to raise_error("This status code does not exist. Please check again!")
   end
 
   it "should display the status message" do
     success.each_with_index do |s, i|
-      expect(Pstatus.getStatusMsg(s)).to eq(success_message([i]))
+      expect(Pstatus.get_status_msg(s)).to eq(success_message([i]))
     end
     information.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(information_message[i])
+      expect{Pstatus.get_status_msg(s)}.to eq(information_message[i])
     end
     redirection.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(redirection_message[i])
+      expect{Pstatus.get_status_msg(s)}.to eq(redirection_message[i])
     end
     client.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(client_message[i])
+      expect{Pstatus.get_status_msg(s)}.to eq(client_message[i])
     end
     server.each_with_index do |s, i|
-      expect{Pstatus.getStatusMsg(s)}.to eq(server_message[i])
+      expect{Pstatus.get_status_msg(s)}.to eq(server_message[i])
     end
   end
 end
