@@ -1,6 +1,6 @@
 # Pstatus
 
-TODO: Write a gem description
+Display the HTTP Status messages.
 
 ## Installation
 
@@ -20,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ Pstatus.get_status_msg(200) # OK
+    $ Pstatus.get_status_msg(201) # Created
 
 ## Contributing
 
