@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vinhnguyenleasnet/pstatus.svg?branch=master)](https://travis-ci.org/vinhnguyenleasnet/pstatus)
+
 # Pstatus
 
 Display the HTTP Status messages.
