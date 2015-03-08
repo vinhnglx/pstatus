@@ -7,8 +7,8 @@ module Pstatus
 
     def get_status_msg
       if @status_code
-        if Pstatus::MESSAGE[@status_code]
-          return Pstatus::MESSAGE[@status_code]
+        if Pstatus::MESSAGE[@status_code.to_i]
+          return Pstatus::MESSAGE[@status_code.to_i]
         else
           raise("This status code does not exist. Please check again!")
         end
